@@ -1,0 +1,270 @@
+/* varibles */
+
+:root {
+    --border: 6px;
+    --shadow: 2px 2px 8px black;
+    --green: rgb(25, 202, 25);
+    --orange: rgb(255, 115, 0);
+    --lightBlue: rgb(0, 190, 207);
+    --pink: rgb(255, 77, 151);
+    --blue: rgb(137, 149, 255);
+    --darkBlue: rgb(31, 45, 167);
+    --light: rgb(202, 202, 202);
+    --med: rgb(194, 118, 238);
+    --textShadow: 0 0 5px black;
+}
+
+/* global styles */
+
+body {
+    background: var(--light);
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+.wrap {
+    padding: 0 50px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.btn {
+    padding: 10px 15px;
+    border: none;
+    outline: none;
+    border-radius: var(--border);
+    font-size: 14pt;
+    box-shadow: var(--shadow);
+    transition: all 200ms ease-in-out;
+}
+
+.btn:active {
+    box-shadow: none;
+}
+
+.btn-blue {
+    background: var(--lightBlue);
+    transition: all 200ms ease-in-out;
+}
+
+.btn-blue:hover {
+    background: rgb(1, 154, 168);
+}
+
+.btn-blue:active {
+    background: rgb(6, 113, 122);
+}
+
+.btn-pink {
+    background: var(--pink);
+    transition: all 200ms ease-in-out;
+}
+
+.btn-pink:hover {
+    background: rgb(224, 61, 129);
+}
+
+.btn-pink:active {
+    background: rgb(182, 48, 104);
+}
+
+.btn-green {
+    background: var(--green);
+    transition: all 200ms ease-in-out;
+}
+
+.btn-green:hover {
+    background: rgb(14, 143, 14);
+}
+
+.btn-green:active {
+    background: rgb(15, 117, 15);
+}
+
+.btn-orange {
+    background: var(--orange);
+    transition: all 200ms ease-in-out;
+}
+
+.btn-orange:hover {
+    background: rgb(224, 120, 2);
+}
+
+.btn-orange:active {
+    background: rgb(190, 102, 1);
+}
+
+/* wrap grid area */
+
+.wrap {
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    grid-template-areas: "head head" "navbar showcase" "navbar showcase" "items items" "boxes boxes" "footer footer";
+}
+
+/* heading secion */
+
+header {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    background: var(--darkBlue);
+    grid-area: head;
+}
+
+header i {
+    padding: 20px;
+}
+
+header h1 {
+    margin-left: 10px;
+    color: white;
+}
+
+/* navigation section */
+
+.navbar nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: var(--blue);
+    height: 500px;
+}
+
+nav a {
+    margin: 10px 8px;
+}
+
+/* main section */
+
+.main {
+    grid-area: showcase;
+}
+
+.main {
+    background: url(./img/toysOrgange.jpeg);
+    background-size: fit-content;
+    min-height: 500px;
+    overflow: hidden;
+}
+
+.main h1 {
+    font-size: 55pt;
+    font-family: 'ZCOOL QingKe HuangYou', cursive;
+    letter-spacing: 10px;
+    color: var(--light);
+}
+
+.main h1, .main h3, .main button {
+    margin-left: 20px;
+}
+
+/* info section */
+
+section.info {
+    display: grid;
+    grid-gap: 15px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-area: boxes;
+}
+
+.boxes {
+    padding: 30px;
+    box-shadow: var(--shadow);
+    background: var(--med);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: var(--border);
+}
+
+/* items section */
+
+section#items {
+    grid-area: items;
+    text-align: center;
+    border: 2px solid var(--pink);
+    border-radius: var(--border);
+    margin: 20px 0;
+    background: var(--blue);
+    text-shadow: var(--textShadow)
+}
+
+#items h4 {
+    color: var(--orange);
+    font-size: 3rem;
+}
+
+section.items {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.items img {
+    margin: 10px;
+}
+
+/* footer section */
+
+footer {
+    grid-area: footer;
+}
+
+footer p {
+    padding: 10px;
+}
+
+/* media queries */
+
+@media only screen and (max-width: 1000px) {
+    .wrap {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-areas: "head" "navbar" "showcase" "items" "boxes" "footer";
+    }
+    .navbar nav {
+        height: fit-content;
+        flex-direction: row;
+    }
+    .navbar a {
+        width: fit-content;
+        margin: 8px 20px;
+    }
+}
+
+@media only screen and (max-width: 720px) {
+    section.info {
+        grid-template-columns: 1fr;
+    }
+    .navbar a {
+        width: fit-content;
+        margin: 5px;
+    }
+    .wrap {
+        padding: 0 20px;
+    }
+    .btn {
+        font-size: 11pt;
+    }
+    .items img {
+        margin: 5px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .items {
+        flex-direction: column;
+    }
+    .items img {
+        width: 90%;
+    }
+    .wrap {
+        padding: 0;
+    }
+}
