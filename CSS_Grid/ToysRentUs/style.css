@@ -1,8 +1,9 @@
-/* varibles */
+/* variables */
 
 :root {
     --border: 6px;
     --shadow: 2px 2px 8px black;
+    --textShadow: 0 0 5px black;
     --green: rgb(25, 202, 25);
     --orange: rgb(255, 115, 0);
     --lightBlue: rgb(0, 190, 207);
@@ -11,7 +12,6 @@
     --darkBlue: rgb(31, 45, 167);
     --light: rgb(202, 202, 202);
     --med: rgb(194, 118, 238);
-    --textShadow: 0 0 5px black;
 }
 
 /* global styles */
@@ -37,7 +37,7 @@ a {
     border: none;
     outline: none;
     border-radius: var(--border);
-    font-size: 14pt;
+    font-size: 1.3rem;
     box-shadow: var(--shadow);
     transition: all 200ms ease-in-out;
 }
@@ -102,11 +102,11 @@ a {
 
 .wrap {
     display: grid;
-    grid-template-columns: 1fr 5fr;
-    grid-template-areas: "head head" "navbar showcase" "navbar showcase" "items items" "boxes boxes" "footer footer";
+    grid-template-columns: 5fr 1fr;
+    grid-template-areas: "head head" "showcase navbar" "items items" "boxes boxes" "footer footer";
 }
 
-/* heading secion */
+/* heading section */
 
 header {
     display: flex;
@@ -127,7 +127,11 @@ header h1 {
 
 /* navigation section */
 
-.navbar nav {
+.navbar {
+    grid-area: navbar;
+}
+
+nav {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -142,14 +146,11 @@ nav a {
 /* main section */
 
 .main {
-    grid-area: showcase;
-}
-
-.main {
-    background: url(./img/toysOrgange.jpeg);
+    background: url(./toysOrgange.jpeg);
     background-size: fit-content;
     min-height: 500px;
     overflow: hidden;
+    grid-area: showcase;
 }
 
 .main h1 {
@@ -163,9 +164,9 @@ nav a {
     margin-left: 20px;
 }
 
-/* info section */
+/* info sectiion */
 
-section.info {
+.info {
     display: grid;
     grid-gap: 15px;
     grid-template-columns: repeat(3, 1fr);
@@ -184,14 +185,14 @@ section.info {
 
 /* items section */
 
-section#items {
-    grid-area: items;
+#items {
     text-align: center;
     border: 2px solid var(--pink);
     border-radius: var(--border);
     margin: 20px 0;
     background: var(--blue);
-    text-shadow: var(--textShadow)
+    text-shadow: var(--textShadow);
+    grid-area: items;
 }
 
 #items h4 {
@@ -199,7 +200,7 @@ section#items {
     font-size: 3rem;
 }
 
-section.items {
+.items {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -210,21 +211,16 @@ section.items {
     margin: 10px;
 }
 
-/* footer section */
-
 footer {
     grid-area: footer;
 }
 
 footer p {
-    padding: 10px;
+    padding: 10px
 }
-
-/* media queries */
 
 @media only screen and (max-width: 1000px) {
     .wrap {
-        display: grid;
         grid-template-columns: 1fr;
         grid-template-areas: "head" "navbar" "showcase" "items" "boxes" "footer";
     }
@@ -243,7 +239,6 @@ footer p {
         grid-template-columns: 1fr;
     }
     .navbar a {
-        width: fit-content;
         margin: 5px;
     }
     .wrap {
